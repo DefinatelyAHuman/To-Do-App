@@ -1,6 +1,6 @@
 import Heading from "./components/heading";
 import Input from "./components/input";
-import Record from "./components/record";
+// import Record from "./components/record";
 import "./App.css";
 
 
@@ -13,7 +13,7 @@ function App() {
     
       <Heading />
       <Input/>
-      <Record/>
+      {/* <Record/> */}
     
     
     </>
