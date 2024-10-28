@@ -12,7 +12,10 @@ function App() {
   function handleToDo(task,date){
     let newSetData = {task, date};
     setData([...data, newSetData]);
-      
+    
+    if (data===""){
+      <div><center>Enter the task</center></div>
+    }
     }
   
 
@@ -26,6 +29,7 @@ function App() {
     
       <Heading />
       <Input onAddClick={handleToDo}/>
+      <hr/>
       <Record onDeleteClick={handleDelete} onChangeData={data}/>
     
     
