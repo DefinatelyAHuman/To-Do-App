@@ -1,46 +1,44 @@
-import { useState } from "react";
+import { useRef } from "react";
 
-function Input({onAddClick}){
-  
-  const [task, setTask] = useState("");
-  const [date, setDate] = useState("");
+function Input({ onAddClick }) {
+  const task = useRef();
+  const date = useRef();
 
-  
-
-  function handleWork(e){
-    setTask(e.target.value);
-  }
-
-  function handleDate(e){
-    setDate(e.target.value);
-  }
-
-  function handleAddButton(){
-    
-    if (task && date){
-      onAddClick(task, date);
-      setTask("");
-      setDate("");
+  function handleAddButton() {
+    if (task && date) {
+      onAddClick(task.current.value, date.current.value);
     }
   }
 
-  
-
-
-
-    return <div>
-  
-    <div className="row todoInput">
-      <div className="col-4 boxes"><input type="text" name="todo" placeholder="Enter To-Do" value={task} onChange={handleWork}/></div>
-      <div className="col-4 boxes"><input type="date" name="date" value={date} onChange={handleDate} /></div>
-      <div className="col-2 buttons">
-        <center><button type="button" className="btn btn-success" onClick={handleAddButton}>Add</button></center>
+  return (
+    <div>
+      <div className="row todoInput">
+        <div className="col-4 boxes">
+          <input
+            type="text"
+            id="exampleInputTask"
+            name="todo"
+            placeholder="Enter To-Do"
+            ref={task}
+          />
+        </div>
+        <div className="col-4 boxes">
+          <input id="exampleInputDate" type="date" name="date" ref={date} />
+        </div>
+        <div className="col-2 buttons">
+          <center>
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={handleAddButton}
+            >
+              Add
+            </button>
+          </center>
+        </div>
       </div>
     </div>
-    
-
-    
-  </div>
+  );
 }
 
 export default Input;

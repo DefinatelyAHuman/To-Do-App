@@ -14,7 +14,7 @@ function App() {
     setData([...data, newSetData]);
     
     if (data===""){
-      <div><center>Enter the task</center></div>
+      
     }
     }
   
